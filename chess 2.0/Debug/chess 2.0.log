@@ -1,0 +1,33 @@
+﻿  Main.cpp
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(231,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(232,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(329,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(329,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(334,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(334,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(351,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(351,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(357,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(357,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(362,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(362,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(367,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(367,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(372,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(372,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(377,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(377,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(382,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(382,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(387,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(387,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(392,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(392,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(397,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(397,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(402,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(402,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(407,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(407,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mgama\source\repos\chess 2.0\chess 2.0\Main.cpp(320,10): warning C4101: 'ok': unreferenced local variable
+  chess 2.0.vcxproj -> C:\Users\mgama\source\repos\chess 2.0\Debug\chess 2.0.exe

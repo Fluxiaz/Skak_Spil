@@ -531,6 +531,79 @@ int QueenB(int ox, int oy, int nx, int ny)
 	return 0;
 }
 
+int KnightW(int ox, int oy, int nx, int ny)
+{
+	if(oy-2>=0 && ox-1>=0 && ny==oy-2 && nx==ox-1 && board [ny][nx] >=0)
+	{
+		return 1;
+	}
+	if(oy -2 >=0 && ox + 1 <= LENGTH && ny == oy -2 && nx == ox + 1 && board [ny] [nx] >=0)
+	{
+	    return 1;
+	}
+	if (oy -1 >=0 && ox + 2 <= LENGTH &&  ny == oy -1 && nx == ox +2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && ny == oy +1 && nx == ox +2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && ny == oy + 2 && nx==ox +1 && board [ny] [nx] >=0)
+	{
+		return 1;
+	}
+	if (oy +2 <= LENGTH && ox -1 >= 0 && ny == oy +2 && nx==ox -1 && board[ny] [nx] >=0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && ox - 2 >= 0 && ny == oy +1 && nx == ox -2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >=0 && ox -2 >= 0 && ny == oy - 1 && nx == ox - 2 && board [ny] [nx] >=0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int KnightB (int ox, int oy, int nx, int ny)
+{
+	if(oy-2>=0 && ox-1>=0 && ny==oy-2 && nx==ox-1 && board [ny][nx] >=0)
+	{
+		return 1;
+	}
+	if(oy -2 >=0 && ox + 1 <= LENGTH && ny == oy -2 && nx == ox + 1 && board [ny] [nx] >=0)
+	{
+	    return 1;
+	}
+	if (oy -1 >=0 && ox + 2 <= LENGTH &&  ny == oy -1 && nx == ox +2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && ny == oy +1 && nx == ox +2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && ny == oy + 2 && nx==ox +1 && board [ny] [nx] >=0)
+	{
+		return 1;
+	}
+	if (oy +2 <= LENGTH && ox -1 >= 0 && ny == oy +2 && nx==ox -1 && board[ny] [nx] >=0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && ox - 2 >= 0 && ny == oy +1 && nx == ox -2 && board [ny] [nx] >= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >=0 && ox -2 >= 0 && ny == oy - 1 && nx == ox - 2 && board [ny] [nx] >=0)
+	{
+		return 1;
+	}
+	return 0;
+}
 //loading in the textures of the board and pices
 int main()
 {

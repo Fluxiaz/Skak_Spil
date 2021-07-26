@@ -672,7 +672,7 @@ for (int i = ox - 1; i >= 0; i--) //left
 	return 0;
 }
 
-int BitshopWCheck (int ox, int oy, int Kingx, int Kingy)
+int BishopWCheck (int ox, int oy, int Kingx, int Kingy)
 {
 
 	int j = ox - 1;
@@ -867,6 +867,390 @@ int KnightWCheck (int ox, int oy, int Kingx, int Kingy)
 	}
 	return 0;
 }
+
+int KingWCheck (int ox, int oy, int Kingx, int Kingy)
+{
+    if(ox - 1 >= 0 && oy -1 >= 0 && kingy == oy - 1 && kingx == ox - 1 && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if ( oy - 1 >= 0 && kingy == ox && kingy == oy - 1 && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >= 0 && ox + 1 < LENGTH && kingx == ox + 1 && kingy == oy - 1 && board[kingy [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (ox + 1 <= LENGTH && kingy == oy && kingx == ox + 1 && board[kingy] [kingx] <=0)
+	{
+		return 1;
+	}
+	if (ox +1 <= LENGTH && oy + 1 <= LENGTH && kingy == oy +1 && kingx == ox +1 && board [kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && kingy == oy + 1 && kingx == ox && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && oy + 1 LENGTH && kingx == ox + 1 && kingy == oy + 1 && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && kingy == oy && kingx == ox - 1 && board[kingy][kingx] <= 0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int PawnBCheck (int ox, int oy, int kingx, int kingy)
+{
+	if (board[oy + 1 ][ox - 1 ] <= 0)
+	{
+		if (kingy == oy + 1 && kingx == ox - 1)
+		{
+			return 1;
+		}
+	}
+	if (board[oy + 1][ox + 1] <= 0)
+	{
+		if(kingy == oy + 1 && kingx == ox +1)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int RookBCheck (int ox, int oy, int kingx, int kingy)
+for (int i = ox - 1; i >= 0; i--) //left
+	{
+		if (board[oy][i] <= 0 && (kingx == i && kingy == oy))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy - 1; i >= 0; i--)// up
+	{
+		if (board[i][ox] <= 0 && (kingy == 1 && kingx == ox))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = ox + 1; i <= LENGTH; i++) //to right
+	{
+		if (board[oy][i] <= 0 && (kingy == oy && kingx == i))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy + 1; i <= LENGTH; i++) //down 
+	{
+		if (board[i][ox] <= 0 && (kingy == i && nx == kingx))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	return 0;
+}
+
+int BishopBCheck (int ox, int oy, int Kingx, int Kingy)
+{
+
+	int j = ox - 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	int j = ox + 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	j = ox - 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	j = ox + 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	return 0;
+}
+
+int QueenBCheck (int ox, int oy, int Kingx, int Kingy)
+{
+
+	int j = ox - 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	int j = ox + 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	j = ox - 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	j = ox + 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] <= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	return 0;
+}
+
+int KnightBcheck (int ox, int oy, int Kingx, int Kingy)
+if(oy-2>=0 && ox-1>=0 && kingy==oy-2 && kingx==ox-1 && board [kingy][kingx] >=0)
+	{
+		return 1;
+	}
+	if(oy -2 >=0 && ox + 1 <= LENGTH && kingy == oy -2 && kingx == ox + 1 && board [kingy] [kingx] <=0)
+	{
+	    return 1;
+	}
+	if (oy -1 >=0 && ox + 2 <= LENGTH &&  kingy == oy -1 && kingx == ox +2 && board [kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && kingy == oy +1 && kingx == ox +2 && board [kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && kingy == oy + 2 && kingx==ox +1 && board [kingy] [kingx] <=0)
+	{
+		return 1;
+	}
+	if (oy +2 <= LENGTH && ox -1 >= 0 && kingy == oy +2 && kingx==ox -1 && board[kingy] [kingx] <=0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && ox - 2 >= 0 && kingy == oy +1 && kingx == ox -2 && board [kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >=0 && ox -2 >= 0 && kingy == oy - 1 && kingx == ox - 2 && board [kingy] [kingx] <=0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int KingBCheck (int ox, int oy, int Kingx, int Kingy)
+{
+    if(ox - 1 >= 0 && oy -1 >= 0 && kingy == oy - 1 && kingx == ox - 1 && board[kingy] [kingx] >= 0)
+	{
+		return 1;
+	}
+	if ( oy - 1 >= 0 && kingy == ox && kingy == oy - 1 && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >= 0 && ox + 1 < LENGTH && kingx == ox + 1 && kingy == oy - 1 && board[kingy [kingx] >= 0)
+	{
+		return 1;
+	}
+	if (ox + 1 <= LENGTH && kingy == oy && kingx == ox + 1 && board[kingy] [kingx] <=0)
+	{
+		return 1;
+	}
+	if (ox +1 <= LENGTH && oy + 1 <= LENGTH && kingy == oy +1 && kingx == ox +1 && board [kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && kingy == oy + 1 && kingx == ox && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && oy + 1 LENGTH && kingx == ox + 1 && kingy == oy + 1 && board[kingy] [kingx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && kingy == oy && kingx == ox - 1 && board[kingy][kingx] <= 0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int BlackKingCheck(int posKingx, int posKingy)
+{
+	int ok = 0;
+	for (int i = 0; i <= LENGTH; i++)
+	{
+		for (int j=0; j <= LENGTH: j++)
+		{
+			if (board[i][j] <= 0) {
+					
+					if (board[i][j] == WHITE_PAWN)
+					{
+						ok = PawnWCheck(j, i, posKingx, posKingy);
+					}
+					if (board[i][j] == WHITE_ROOK)
+					{
+						ok = RookWCheck(j, i, posKingx, posKingy);
+					}
+					
+					if (board[i][j] == WHITE_KNIGHT)
+					{
+						ok = KnightWCheck(j, i, posKingx, posKingy);
+					}
+				
+					if (board[i][j] == WHITE_BISHOP )
+					{
+						ok = BishopWCheck(j, i, posKingx, posKingy);
+					}
+					
+					if (board[i][j] == WHITE_QUEEN )
+					{
+					    ok = QueenWCheck(j, i, posKingx, posKingy);
+					}
+					
+					if (board[i][j] == WHITE_KING )
+					{
+						ok = KingWCheck(j, i, posKingx, posKingy);
+					}
+					if (ok == 1)
+					{
+						return 0;
+					}
+			}
+			return 0;
+		}
+		
+	}
+}
+
+int BlackKing (int ox, int oy, int nx, int ny)
+{
+    if(ox - 1 >= 0 && oy -1 >= 0 && ny == oy - 1 && nx == ox - 1 && board[ny] [nx] >= 0)
+	{
+	    int ok = BlackKingCheck(ox - 1, oy - 1);
+		if (ok==1)
+		{
+			return 1;
+		}
+		
+	}
+	if ( oy - 1 >= 0 && ny == ox && ny == oy - 1 && board[ny] [nx] <= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >= 0 && ox + 1 < LENGTH && nx == ox + 1 && ny == oy - 1 && board[ny [nx] >= 0)
+	{
+		return 1;
+	}
+	if (ox + 1 <= LENGTH && ny == oy && nx == ox + 1 && board[ny] [nx] <=0)
+	{
+		return 1;
+	}
+	if (ox +1 <= LENGTH && oy + 1 <= LENGTH && ny == oy +1 && nx == ox +1 && board [ny] [nx] <= 0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && ny == oy + 1 && nx == ox && board[ny] [nx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && oy + 1 LENGTH && nx == ox + 1 && ny == oy + 1 && board[ny] [nx] <= 0)
+	{
+		return 1;
+	}
+	if (ox - 1 >= 0 && ny == oy && nx == ox - 1 && board[ny][nx] <= 0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
 
 //loading in the textures of the board and pices
 int main()

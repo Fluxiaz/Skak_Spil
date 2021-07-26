@@ -570,40 +570,304 @@ int KnightW(int ox, int oy, int nx, int ny)
 
 int KnightB (int ox, int oy, int nx, int ny)
 {
-	if(oy-2>=0 && ox-1>=0 && ny==oy-2 && nx==ox-1 && board [ny][nx] >=0)
+	if(oy-2>=0 && ox-1>=0 && ny==oy-2 && nx==ox-1 && board [ny][nx] <=0)
 	{
 		return 1;
 	}
-	if(oy -2 >=0 && ox + 1 <= LENGTH && ny == oy -2 && nx == ox + 1 && board [ny] [nx] >=0)
+	if(oy -2 >=0 && ox + 1 <= LENGTH && ny == oy -2 && nx == ox + 1 && board [ny] [nx] <=0)
 	{
 	    return 1;
 	}
-	if (oy -1 >=0 && ox + 2 <= LENGTH &&  ny == oy -1 && nx == ox +2 && board [ny] [nx] >= 0)
+	if (oy -1 >=0 && ox + 2 <= LENGTH &&  ny == oy -1 && nx == ox +2 && board [ny] [nx] <= 0)
 	{
 		return 1;
 	}
-	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && ny == oy +1 && nx == ox +2 && board [ny] [nx] >= 0)
+	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && ny == oy +1 && nx == ox +2 && board [ny] [nx] <= 0)
 	{
 		return 1;
 	}
-	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && ny == oy + 2 && nx==ox +1 && board [ny] [nx] >=0)
+	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && ny == oy + 2 && nx==ox +1 && board [ny] [nx] <=0)
 	{
 		return 1;
 	}
-	if (oy +2 <= LENGTH && ox -1 >= 0 && ny == oy +2 && nx==ox -1 && board[ny] [nx] >=0)
+	if (oy +2 <= LENGTH && ox -1 >= 0 && ny == oy +2 && nx==ox -1 && board[ny] [nx] <=0)
 	{
 		return 1;
 	}
-	if (oy + 1 <= LENGTH && ox - 2 >= 0 && ny == oy +1 && nx == ox -2 && board [ny] [nx] >= 0)
+	if (oy + 1 <= LENGTH && ox - 2 >= 0 && ny == oy +1 && nx == ox -2 && board [ny] [nx] <= 0)
 	{
 		return 1;
 	}
-	if (oy - 1 >=0 && ox -2 >= 0 && ny == oy - 1 && nx == ox - 2 && board [ny] [nx] >=0)
+	if (oy - 1 >=0 && ox -2 >= 0 && ny == oy - 1 && nx == ox - 2 && board [ny] [nx] <=0)
 	{
 		return 1;
 	}
 	return 0;
 }
+
+int PawnWCheck(int ox, int oy, int Kingx, int Kingy)
+{
+	if (board [oy - 1][ox - 1] >= 0)
+	{
+		if (oy - 1 == kingy && ox - 1 == kingx)
+		{
+			return 1;
+		}
+	}
+	if (board [oy - 1] [ox + 1] >= 0)
+	{
+		if (oy - 1 == kingy && ox + 1 == kingx)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int RookWCheck (int ox, int oy, int Kingx, int Kingy)
+for (int i = ox - 1; i >= 0; i--) //left
+	{
+		if (board[oy][i] >= 0 && (kingx == i && kingy == oy))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy - 1; i >= 0; i--)// up
+	{
+		if (board[i][ox] >= 0 && (kingy == 1 && kingx == ox))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = ox + 1; i <= LENGTH; i++) //to right
+	{
+		if (board[oy][i] >= 0 && (kingy == oy && kingx == i))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy + 1; i <= LENGTH; i++) //down 
+	{
+		if (board[i][ox] >= 0 && (kingy == i && nx == kingx))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	return 0;
+}
+
+int BitshopWCheck (int ox, int oy, int Kingx, int Kingy)
+{
+
+	int j = ox - 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	int j = ox + 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	j = ox - 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	j = ox + 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	return 0;
+}
+
+int QueenWCheck (int ox, int oy, int Kingx, int Kingy)
+for (int i = ox - 1; i >= 0; i--) //left
+	{
+		if (board[oy][i] >= 0 && (kingx == i && kingy == oy))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy - 1; i >= 0; i--)// up
+	{
+		if (board[i][ox] >= 0 && (kingy == 1 && kingx == ox))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = ox + 1; i <= LENGTH; i++) //to right
+	{
+		if (board[oy][i] >= 0 && (kingy == oy && kingx == i))
+		{
+			return 1;
+		}
+		else if (board[oy][i] != 0)
+		{
+			break;
+		}
+	}
+	for (int i = oy + 1; i <= LENGTH; i++) //down 
+	{
+		if (board[i][ox] >= 0 && (kingy == i && nx == kingx))
+		{
+			return 1;
+		}
+		else if (board[i][ox] != 0)
+		{
+			break;
+		}
+	}
+	int j = ox - 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	int j = ox + 1;
+	for (int i = oy - 1; i >= 0; i--)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	j = ox - 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j--;
+	}
+	j = ox + 1;
+	for (int i = oy + 1; i <= LENGTH; i++)
+	{
+		if (board[i][j] >= 0 && (kingy == i && kingx == j))
+		{
+			return 1;
+		}
+		else if (board[i][j] != 0)
+		{
+			break;
+		}
+		j++;
+	}
+	return 0;
+
+}
+
+int KnightWCheck (int ox, int oy, int Kingx, int Kingy)
+{
+	if(oy-2>=0 && ox-1>=0 && kingy==oy-2 && kingx==ox-1 && board [kingy][kingx] >=0)
+	{
+		return 1;
+	}
+	if(oy -2 >=0 && ox + 1 <= LENGTH && kingy == oy -2 && kingx == ox + 1 && board [kingy] [kingx] >=0)
+	{
+	    return 1;
+	}
+	if (oy -1 >=0 && ox + 2 <= LENGTH &&  kingy == oy -1 && kingx == ox +2 && board [kingy] [kingx] >= 0)
+	{
+		return 1;
+	}
+	if (oy +1 <= LENGTH && ox + 2 <=LENGTH && kingy == oy +1 && kingx == ox +2 && board [kingy] [kingx] >= 0)
+	{
+		return 1;
+	}
+	if ( oy +2 <= LENGTH && ox + 1	<= LENGTH && kingy == oy + 2 && kingx==ox +1 && board [kingy] [kingx] >=0)
+	{
+		return 1;
+	}
+	if (oy +2 <= LENGTH && ox -1 >= 0 && kingy == oy +2 && kingx==ox -1 && board[kingy] [kingx] >=0)
+	{
+		return 1;
+	}
+	if (oy + 1 <= LENGTH && ox - 2 >= 0 && kingy == oy +1 && kingx == ox -2 && board [kingy] [kingx] >= 0)
+	{
+		return 1;
+	}
+	if (oy - 1 >=0 && ox -2 >= 0 && kingy == oy - 1 && kingx == ox - 2 && board [kingy] [kingx] >=0)
+	{
+		return 1;
+	}
+	return 0;
+}
+
 //loading in the textures of the board and pices
 int main()
 {

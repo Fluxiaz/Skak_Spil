@@ -1222,33 +1222,120 @@ int BlackKing (int ox, int oy, int nx, int ny)
 	}
 	if ( oy - 1 >= 0 && ny == ox && ny == oy - 1 && board[ny] [nx] <= 0)
 	{
-		return 1;
+	    int ok = BlackKingCheck(ox, oy - 1);
+		if(ok == 1)
+	    {
+			return 1;
+		}
+		
 	}
 	if (oy - 1 >= 0 && ox + 1 < LENGTH && nx == ox + 1 && ny == oy - 1 && board[ny [nx] >= 0)
 	{
-		return 1;
+	    int ok = BlackKingCheck(ox + 1, oy - 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
+		
 	}
 	if (ox + 1 <= LENGTH && ny == oy && nx == ox + 1 && board[ny] [nx] <=0)
 	{
-		return 1;
+	    int ok = BlackKingCheck(ox + 1, oy);
+		if (ok== 1)
+		{
+			return 1;
+		}
+		
 	}
 	if (ox +1 <= LENGTH && oy + 1 <= LENGTH && ny == oy +1 && nx == ox +1 && board [ny] [nx] <= 0)
 	{
-		return 1;
+		int ok = BlackKingCheck(ox + 1, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
 	}
 	if (oy + 1 <= LENGTH && ny == oy + 1 && nx == ox && board[ny] [nx] <= 0)
 	{
-		return 1;
+		int ok = BlackKingCheck(ox, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
 	}
 	if (ox - 1 >= 0 && oy + 1 LENGTH && nx == ox + 1 && ny == oy + 1 && board[ny] [nx] <= 0)
 	{
-		return 1;
+		int ok = BlackKingCheck(ox - 1, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
 	}
 	if (ox - 1 >= 0 && ny == oy && nx == ox - 1 && board[ny][nx] <= 0)
 	{
-		return 1;
+		int ok = BlackKing(ox - 1, oy);
+		if (ok == 1)
+		{
+			return 1;
+		}
+	}
+	if(rightBlackRookM==0 && blackKingFirstMove==0 && board[0][5]==0 && board[0][6]==0 && ny==0 && ny==6)
+	{
+	     int ok = BlackKingCheck(4, 0);
+		 if (ok == 1)
+		 {
+			  ok = BlackKingCheck(5, 0);
+			  if (ok == 1)
+			  {
+					ok = BlackKingCheck(6, 0);
+					if (ok == 1)
+					{
+						blackKingFirstMove = 1;
+						rightBlackRookM = 1;
+						board[0][7] = 0;
+						board[0][5] = BLACK_ROOK;
+						return 1;
+					}
+			  }
+		 }
+	}
+	if(leftBlackRookM==0 && blackKingFirstMove==0 && board[0] [3]== 0 && board [0][2]== 0 && board[0][1]==0 && ny==0 && nx==2)
+	{
+		int ok = BlackKingCheck(4, 0);
+		if (ok == 1)
+		{
+			ok = BlackKingCheck(3, 0);
+			if (ok == 1)
+			{
+				ok BlackKingCheck(2, 0);
+				if (ok == 1)
+				{
+					ok = BlackKingCheck(1, 0);
+					if (ok == 1)
+					{
+						blackKingFirstMove = 1;
+						leftBlackRookM = 1;
+						board[0][0] = 0;
+						board[0][3] = BLACK_ROOK;
+						return 1;
+					}
+				}
+			}
+		}
 	}
 	return 0;
+}
+
+int WhiteKingCheck (int posKingx, int posKingy)
+{
+	int ok = 0;
+	for (int i = 0; i <= LENGTH; i++)
+	{
+		for (int j = 0; j <= LENGTH; j++)
+		{
+			if(board[i][j])
+		}
+	}
 }
 
 

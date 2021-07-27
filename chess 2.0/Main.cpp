@@ -1612,11 +1612,38 @@ int main()
 								posBlackKing();
 								int h = BlackKingCheck(blackKing.x, blackKing.y);
 								if (h == 0)
+								{
+									checkBlack = 1;
+								}
 
 							}
 						}
 					}
 					
+
+
+
+
+					if (transformationBlack == 1)
+					{
+						if (pos.y>= transformBLACK.y*size && pos.y<=(transformBLACK.y+1)*size && pos.x>= transformBLACK.x*size && pos.x<=(transformBLACK.x+1)*size )
+						{
+							int xx = pos.x % size, yy = pos.y % size;
+							if (xx < 50 && yy < 50 && xx>0 && yy>0)
+							{
+								board[transformBlack.y][transformBlack.x] = BLACK_ROOK;
+								transformationBlack = 0;
+							}
+						}
+					}
+
+
+
+
+
+
+
+
 					if (board[y][x] != 0)
 					{
 						dx = pos.x - x * size;

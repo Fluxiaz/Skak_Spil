@@ -1333,7 +1333,194 @@ int WhiteKingCheck (int posKingx, int posKingy)
 	{
 		for (int j = 0; j <= LENGTH; j++)
 		{
-			if(board[i][j])
+			if(board[i][j] > 0)
+			{
+				if (board[i][j] == BLACK_PAWN)
+				{
+					ok = PawnBCheck(j, i, posKingx, posKingy);
+				}
+
+				if (board[i][j] == BLACK_ROOK)
+				{
+					 ok = RookBCheck(j, i, posKingx, posKingy);
+				}
+					
+				if (board[i][j] == BLACK_KNIGHT)
+				{
+					ok = KnightBcheck(j, i, posKingx, posKingy);
+				}
+				
+				if (board[i][j] == BLACK_BISHOP)
+				{
+					ok = BishopBCheck(j, i, posKingx, posKingy);
+				}
+				
+		    	if (board[i][j] == BLACK_QUEEN)
+				{
+					ok = QueenBCheck(j, i, posKingx, posKingy);
+				}
+			
+				if (board[i][j] == BLACK_KING)
+				{
+					ok = KingBCheck(j, i, posKingx, posKingy);
+				}
+				if ( ok == 1)
+				{
+					return 0;
+				}
+			}
+		}
+	}
+	retun 1;
+}
+
+int whiteKing (int ox, int oy, int nx, int ny)
+{
+	if(ox - 1 >= 0 && oy -1 >= 0 && ny == oy - 1 && nx == ox - 1 && board[ny] [nx] >= 0)
+	{
+	    int ok = WhiteKingCheck(ox - 1, oy - 1);
+		if (ok==1)
+		{
+			return 1;
+		}
+		
+	}
+	if ( oy - 1 >= 0 && ny == ox && ny == oy - 1 && board[ny] [nx] >= 0)
+	{
+	    int ok = WhiteKingCheck(ox, oy - 1);
+		if(ok == 1)
+	    {
+			return 1;
+		}
+		
+	}
+	if (oy - 1 >= 0 && ox + 1 < LENGTH && nx == ox + 1 && ny == oy - 1 && board[ny [nx] >= 0)
+	{
+	    int ok = WhiteKingCheck(ox + 1, oy - 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
+		
+	}
+	if (ox + 1 <= LENGTH && ny == oy && nx == ox + 1 && board[ny] [nx] >=0)
+	{
+	    int ok = WhiteKingCheck(ox + 1, oy);
+		if (ok== 1)
+		{
+			return 1;
+		}
+		
+	}
+	if (ox +1 <= LENGTH && oy + 1 <= LENGTH && ny == oy +1 && nx == ox +1 && board [ny] [nx] >= 0)
+	{
+		int ok = WhiteKingCheck(ox + 1, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
+	}
+	if (oy + 1 <= LENGTH && ny == oy + 1 && nx == ox && board[ny] [nx] >= 0)
+	{
+		int ok = WhiteKingCheck(ox, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
+	}
+	if (ox - 1 >= 0 && oy + 1 LENGTH && nx == ox + 1 && ny == oy + 1 && board[ny] [nx] >= 0)
+	{
+		int ok = WhiteKingCheck(ox - 1, oy + 1);
+		if (ok == 1)
+		{
+			return 1;
+		}
+	}
+	if (ox - 1 >= 0 && ny == oy && nx == ox - 1 && board[ny][nx] >= 0)
+	{
+		int ok = WhiteKing(ox - 1, oy);
+		if (ok == 1)
+		{
+			return 1;
+		}
+	}
+	if (whiteKingFirstMove==0 && rightWhiteRookM == 0 && board [7][6]==0 && board[7][6]== 0 && ny==7 && nx==6)
+	{
+		int ok = WhiteKingCheck(4,7);
+		if (ok == 1)
+		{
+			ok = WhiteKingCheck(5, 7);
+			if(ok == 1)
+			{
+				ok = WhiteKingCheck(6, 7);
+				if (ok == 1)
+				{
+					board[7][7] = 0;
+					board[7][5] = WHITE_ROOK;
+					whiteKingFirstMove = 1;
+					rightWhiteRookM = 1;
+					return 1;
+				}
+			}
+		}
+	}
+	if (whiteKingFirstMove==0 && rightWhiteRookM==0 && board[7][3]==0 && board[7][2]==0 && board[7][1]==0 && ny==7 nx==2)
+	{
+		int ok = WhiteKingCheck(4,7);
+		if (ok == 1)
+		{
+			ok = WhiteKingCheck(3, 7);
+			if(ok == 1)
+			{
+				ok = WhiteKingCheck(2, 7);
+				if (ok == 1)
+				{
+					ok = WhiteKingCheck(1, 7);
+					if (ok == 1)
+					{
+					board[7][0] = 0;
+					board[7][3] = WHITE_ROOK;
+					whiteKingFirstMove = 1;
+					leftWhiteRookM = 1;
+					return 1;
+				    }
+					
+				}
+				
+			}
+		}
+	}
+	return 0;
+}
+
+void posWhiteKing()
+{
+	for (int i = 0; i <= LENGTH; i++)
+	{
+		for (int j = 0; j <= LENGTH; j++)
+		{
+			if (board[i][j] == WHITE_KING)
+			{
+				whiteKing.x = j;
+				WhiteKing.y = i;
+				break;
+			}
+		}
+	}
+}
+
+void posBlackKing()
+{  
+	for (int i = 0; i <= LENGTH; i++)
+	{
+		for (int j = 0; j <= LENGTH; j++)
+		{
+			if (board[i][j] == BLACK_KING)
+			{
+				blackKing.x = j;
+				blackKing.y = i;
+				break;
+			}
 		}
 	}
 }
@@ -1400,9 +1587,36 @@ int main()
 			{
 				if (e.key.code == Mouse::Left)
 				{
-					//transformation
+					if (TransformationWhite == 1)
+					{
+						if(pos.y>=transformWHITE.y*size && pos.y <=( transformWHITE.y+1)*size && pos.x >=transformWHITE.x*size && pos.x<=(transformWHITE.x+1)*size)
+						{
+							int xx == pos.x % size, yy = pos.y % size;
+							if (xx < 50 && yy < 50 && xx>0 && yy<0)
+							{
+								board[transformWHITE.y][transformWHITE.x] = WHITE_ROOK;
+								transformationWhite = 0;
+							}
+							if (xx > 50 && xx < 100 && yy>50 && yy < 100)
+							{
+								board[transformWHITE.y][transformWHITE.x] = WHITE_KNIGHT;
+								transformationWhite = 0;
+							}
+							if (xx < 50 && xx > 100 && yy>50 && yy < 100)
+							{
+								board[transformWHITE.y][transformWHITE.x] = WHITE_BISHOP;
+								transformationWhite = 0;
+							}
+							if (transformationWhite == 0)
+							{
+								posBlackKing();
+								int h = BlackKingCheck(blackKing.x, blackKing.y);
+								if (h == 0)
 
-					//
+							}
+						}
+					}
+					
 					if (board[y][x] != 0)
 					{
 						dx = pos.x - x * size;

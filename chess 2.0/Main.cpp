@@ -211,7 +211,7 @@ int RookB(int ox, int oy, int nx, int ny)//old x,y; new x,y
 	return 0;
 }
 
-int BitshopW(int ox, int oy, int nx, int ny)
+int BishopW(int ox, int oy, int nx, int ny)
 {
 
 	int j = ox - 1;
@@ -270,7 +270,7 @@ int BitshopW(int ox, int oy, int nx, int ny)
 
 }
 
-int BitshopB(int ox, int oy, int nx, int ny)
+int BishopB(int ox, int oy, int nx, int ny)
 {
 
 	int j = ox - 1;
@@ -1620,10 +1620,6 @@ int main()
 						}
 					}
 					
-
-
-
-
 					if (transformationBlack == 1)
 					{
 						if (pos.y>= transformBLACK.y*size && pos.y<=(transformBLACK.y+1)*size && pos.x>= transformBLACK.x*size && pos.x<=(transformBLACK.x+1)*size )
@@ -1634,15 +1630,32 @@ int main()
 								board[transformBlack.y][transformBlack.x] = BLACK_ROOK;
 								transformationBlack = 0;
 							}
+							if (xx > 50 && xx <100 && yy < 50 && yy >0)
+							{
+								board[transformBlack.y][transformBlack.x] = BLACK_QUEEN;
+								transformationBlack = 0;
+							}
+							if (xx > 50 && xx < 100 && yy>50 && yy <100)
+							{
+								board[transformBlack.y][transformBlack.x] = BLACK_KNIGHT;
+								transformationBlack = 0;
+							}
+							if ( xx < 50 && xx>0 && yy > 50 && yy < 100)
+							{
+								board[transformBlack.y][transformBlack.x] = BLACK_BISHOP;
+								transformationBlack = 0;
+							}
+							if (transformationBlack == 0)
+							{
+								posWhiteKing();
+								int h = WhiteKingCheck(whiteKing.x, whiteKing.y);
+								if (h == 1)
+								{
+									checkWhite = 1;
+								}
+							}
 						}
 					}
-
-
-
-
-
-
-
 
 					if (board[y][x] != 0)
 					{
@@ -1736,7 +1749,116 @@ int main()
 				if (e.key.code == Mouse::Left)
 				{
 					int ok;
-					//pieces movement
+					if (noMovedpiece == WHITE_PAWN && isMoving == 1)
+					{
+						ok = PawnW(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == BLACK_PAWN && isMoving == 1)
+					{
+						ok = PawnB(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == WHITE_ROOK && isMoving == 1)
+					{
+						ok = RookW(oldPoz.x, oldPoz.y, x, y);;
+						if ( ok == 1 && leftWhiteRookM == 0 && oldPoz.y == 7 && oldPoz.x == 0)
+						{
+							leftBlackRookM = 1;
+						}
+						if (ok == 1 && rightWhiteRookM==0 && oldPoz.y == 7 && oldPoz.x == 7)
+						{
+							rightWhiteRookM = 1;
+						}
+					}
+					if (noMovedpiece == BLACK_ROOK && isMoving == 1)
+					{
+						ok = RookB(oldPoz.x, oldPoz.y, x, y);;
+						if ( ok == 1 && rightBlackRookM == 0 && oldPoz.y == 0 && oldPoz.x == 7)
+						{
+							rightBlackRookM = 1;
+						}
+						if (ok == 1 && leftBlackRookM==0 && oldPoz.y == 0 && oldPoz.x == 0)
+						{
+							leftBlackRookM = 1;
+						}
+					}
+					if (noMovedpiece == WHITE_BISHOP && isMoving == 1)
+					{
+						ok = BishopW(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == BLACK_BISHOP && isMoving == 1)
+					{
+						ok = BishopB(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == WHITE_QUEEN && isMoving == 1)
+					{
+						ok = QueenW(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == BLACK_QUEEN && isMoving == 1)
+					{
+						ok = QueenB(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == WHITE_KNIGHT && isMoving == 1)
+					{
+						ok = KnightW(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == BLACK_KNIGHT && isMoving == 1)
+					{
+						ok = KnightB(oldPoz.x, oldPoz.y, x, y);
+					}
+					if (noMovedpiece == BLACK_KING && isMoving == 1)
+					{
+						ok = BlackKing(oldPoz.x, oldPoz.y, x, y);
+						if (ok == 1 && blackKingFirstMove==0)
+						{
+							blackKingFirstMove = 1;
+						}
+					}
+					if (noMovedpiece == WHITE_KING && isMoving == 1)
+					{
+						ok = WhiteKing(oldPoz.x, oldPoz.y, x, y);
+						if (ok == 1 && whiteKingFirstMove==0)
+						{
+							whiteKingFirstMove = 1;
+						}
+					}
+					if (y == 0 && noMovedpiece == WHITE_PAWN)
+					{
+						transformationWhite = 1;
+						transformWHITE.x = x;
+						transformWHITE.y = y;
+						board[y][x] = 0;
+					}
+					if (y == 0 && noMovedpiece == BLACK_PAWN)
+					{
+						transformationBlack = 1;
+						transformBLACK.x = x;
+						transformBLACK.y = y;
+						board[y][x] = 0;
+					}
+					if (move == 0)
+					{
+						if (checkWhite == 1)
+						{
+							posWhiteKing();
+							int s = WhiteKingCheck(whiteKing.x, whiteKing.y);
+							if (s == 0)
+							{
+								board[oldPoz.y][oldPoz.x] = noMovedpiece;
+								board[y][x] = nr;
+							}
+							else
+							{
+								checkWhite = 0;
+								posBlackKing();
+								int check = BlackKingCheck(blackKing.x, blackKing.y);
+								if (check == 0)
+								{
+									checkBlack =1;
+								}
+								move = 1;
+							}
+						}
+					}
 				}
 			}
 		}

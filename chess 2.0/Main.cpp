@@ -1853,12 +1853,81 @@ int main()
 								int check = BlackKingCheck(blackKing.x, blackKing.y);
 								if (check == 0)
 								{
-									checkBlack =1;
+									checkBlack = 1;
 								}
 								move = 1;
 							}
+							else
+							{
+							    posWhiteKing();
+								int sa = WhiteKingCheck(whiteKing.x, whiteKing.y);
+								if (sa == 0 )
+								{
+									board[oldPoz.y][oldPoz.x] = noMovedpiece;
+									board[y][x] = nr;
+								}
+								else
+								{
+								   posBlackKing();
+								   int check = BlackKingCheck(blackKing.x, blackKing.y);
+								   if( check == 0)
+								   {
+									 checkBlack = 1;
+								   }
+								   move = 1;
+								}
+							}
+						}
+						else
+						{
+							if(checkBlack==1)
+							{
+								int s = BlackKingCheck(blackKing.x, blackKing.y);
+								if (s == 0)
+								{
+									board[oldPoz.y][oldPoz.x] = noMovedpiece;
+									board[y][x] = nr;
+								}
+								else
+								{
+									checkBlack = 0;
+									posWhiteKing();
+									int check = WhiteKingCheck(whiteKing.x, whiteKing.y);
+									if (check == 0)
+									{
+										checkWhite = 1;
+									}
+									move = 0;
+								}
+							}
+							else
+							{
+								posBlackKing();
+								int sa = BlackKingCheck(blackKing.x, blackKing.y);
+								if (sa == 0)
+								{
+									board[oldPoz.y][oldPoz.x] = noMovedpiece;
+									board[y][x] = nr;
+								}
+								else
+								{
+								    posWhiteKing();
+									int check= WhiteKingCheck(whiteKing.x, WhiteKing.y);
+									if (check == 0)
+									{
+										checkWhite = 1;  
+									}
+									move = 0;
+								}
+							}
 						}
 					}
+					else if (ok == 0)
+					{
+					  board[oldPoz.y][oldPoz.x] = noMovedpiece;
+					}
+					isMoving = 0;
+
 				}
 			}
 		}
